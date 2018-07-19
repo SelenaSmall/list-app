@@ -1,0 +1,22 @@
+{
+  "name": "list-app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "6.3.1"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SelenaSmall/list-app.git"
+  },
+  "author": "Selena Small",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SelenaSmall/list-app/issues"
+  },
+  "homepage": "https://github.com/SelenaSmall/list-app#readme"
+}
