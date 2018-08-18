@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 List.create(title:"West Sweden Road Trip", excerpt:"A cool road trip with stops in harbors of the coast")
 List.create(title:"Must have equipment for the outdoor photographer", excerpt:"My selection of gear for modern outdoor photography")
+
+User.create(email: 'admin@test.com', password: 'password', password_confirmation: 'password', admin: true)
+User.create(email: 'user@test.com', password: 'password', password_confirmation: 'password')
