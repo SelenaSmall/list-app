@@ -6,35 +6,35 @@ import { CookiesProvider } from 'react-cookie'
 import TokenAuth from './components/TokenAuth'
 
 class App extends Component {
-    constructor(props) {
-        super(props)
-        this.getStuff = this.getStuff.bind(this)
-    }
-
-    getStuff () {
-        alert('hello')
-    }
-
-    loggedIn() {
-        return  !!localStorage.getItem("jwt")
-    }
-
-    login () {
-        const email = $("#email").val()
-        const password = $("#password").val()
-        const request = {"auth": {"email": email, "password": password}}
-        console.log(request)
-        $.ajax({
-            url: "http://localhost:3000/api/v1/user_token",
-            type: "POST",
-            data: request,
-            dataType: "json",
-            success: function (result) {
-                console.log(result)
-                localStorage.setItem("jwt", result.jwt)
-            }
-        })
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.getStuff = this.getStuff.bind(this)
+    // }
+    //
+    // getStuff () {
+    //     alert('hello')
+    // }
+    //
+    // loggedIn() {
+    //     return  !!localStorage.getItem("jwt")
+    // }
+    //
+    // login () {
+    //     const email = $("#email").val()
+    //     const password = $("#password").val()
+    //     const request = {"auth": {"email": email, "password": password}}
+    //     console.log(request)
+    //     $.ajax({
+    //         url: "http://localhost:3000/api/v1/user_token",
+    //         type: "POST",
+    //         data: request,
+    //         dataType: "json",
+    //         success: function (result) {
+    //             console.log(result)
+    //             localStorage.setItem("jwt", result.jwt)
+    //         }
+    //     })
+    // }
 
   render() {
     return (

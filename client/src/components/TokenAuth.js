@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import AppHeader from './AppHeader.js'
 import AuthSignIn from './AuthSignIn.js'
-// import AuthSignOut from './AuthSignOut.js'
-// import PageHome from './PageHome.js'
+import AuthSignOut from './AuthSignOut.js'
+import PageHome from './PageHome.js'
 
 const Api = require('../Api.js')
 
@@ -20,10 +20,9 @@ class TokenAuth extends Component {
         return (
             <Router>
                 <div>
-
                     <AppHeader appState={this.state} />
 
-                    {/*<Route exact path="/" component={PageHome} />*/}
+                    <Route exact path="/" component={PageHome} />
 
                     {!this.state.jwt &&
                     <Route
@@ -34,15 +33,14 @@ class TokenAuth extends Component {
                     />
                     }
 
-                    {/*{this.state.jwt &&*/}
-                    {/*<Route*/}
-                        {/*exact path="/sign-out"*/}
-                        {/*render={(routeProps) => (*/}
-                            {/*<AuthSignOut {...routeProps} propagateSignOut={this.propagateSignOut} />*/}
-                        {/*)}*/}
-                    {/*/>*/}
-                    {/*}*/}
-
+                    {this.state.jwt &&
+                    <Route
+                        exact path="/sign-out"
+                        render={(routeProps) => (
+                            <AuthSignOut {...routeProps} propagateSignOut={this.propagateSignOut} />
+                        )}
+                    />
+                    }
                 </div>
             </Router>
         )
@@ -67,7 +65,7 @@ class TokenAuth extends Component {
         this.state = this.defaultState()
 
         this.propagateSignIn = this.propagateSignIn.bind(this)
-        // this.propagateSignOut = this.propagateSignOut.bind(this)
+        this.propagateSignOut = this.propagateSignOut.bind(this)
     }
 
     propagateSignIn(jwt, history = undefined) {
@@ -76,16 +74,17 @@ class TokenAuth extends Component {
         this.getUser(history)
     }
 
-    // propagateSignOut(history = undefined) {
-    //     const { cookies } = this.props
-    //     cookies.remove(this.state.cookieName)
-    //     this.setState({
-    //         email: undefined,
-    //         user_id: undefined,
-    //         jwt: undefined
-    //     })
-    //     if (history) history.push('/')
-    // }
+    propagateSignOut(history = undefined) {
+        const { cookies } = this.props
+        cookies.remove(this.state.cookieName)
+
+        this.setState({
+            email: undefined,
+            user_id: undefined,
+            jwt: undefined
+        })
+        if (history) history.push('/')
+    }
 
     getUser(history = undefined) {
         const { cookies } = this.props
@@ -103,6 +102,7 @@ class TokenAuth extends Component {
             }
             else {
                 // user has cookie but cannot load current user
+                console.log('cannot load')
                 cookies.remove(this.state.cookieName)
                 this.setState({
                     email: undefined,

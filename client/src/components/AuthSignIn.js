@@ -5,7 +5,6 @@ import {
     FormGroup,
     Label,
     Input,
-    // FormControl,
     Button,
     Alert } from 'reactstrap'
 
