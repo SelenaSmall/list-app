@@ -94,10 +94,10 @@ class ListsContainer extends Component {
                     editingList={this.editingList}
                     />)
                 }
-        })}
-    <NewListForm onNewList={this.addNewList} />
-        </div>
-    )
+            })}
+            <NewListForm onNewList={this.addNewList} />
+            </div>
+        )
     }
 }
 export default ListsContainer;

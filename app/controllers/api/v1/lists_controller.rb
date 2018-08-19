@@ -1,6 +1,7 @@
 module Api::V1
   class ListsController < ApplicationController
     before_action :set_list, only: [:show, :update, :destroy]
+    before_action :authenticate_user
 
     # GET /lists
     def index

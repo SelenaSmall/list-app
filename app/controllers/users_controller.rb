@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  before_action :authenticate_user,  only: [:index, :current]
 
   # GET /users
   def index
     @users = User.all
 
     render json: @users
+  end
+
+  def current
+    render json: current_user.as_json(only: %i(id email))
   end
 
   # GET /users/1
@@ -18,9 +23,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: {status: 200, msg: 'User was created.'}
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {status: 422, msg: 'not saved'}
     end
   end
 
