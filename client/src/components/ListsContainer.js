@@ -9,7 +9,8 @@ class ListsContainer extends Component {
         super(props)
         this.state = {
             lists: [],
-            editingListId: null
+            editingListId: null,
+            jwt: props.jwt
         }
         this.addNewList = this.addNewList.bind(this)
         this.removeList = this.removeList.bind(this)
@@ -18,7 +19,7 @@ class ListsContainer extends Component {
     }
 
     componentDidMount() {
-        axios.get('api/v1/lists.json')
+        axios.get('api/v1/lists.json', { headers: {Authorization: `Bearer ${this.state.jwt}`}})
             .then(response => {
             console.log(response)
         this.setState({
