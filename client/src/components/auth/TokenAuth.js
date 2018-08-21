@@ -29,7 +29,7 @@ class TokenAuth extends Component {
                     <Route
                         exact path="/lists"
                         render={(routeProps) => (
-                            <ListsContainer {...routeProps} jwt={this.state.jwt} />
+                            <ListsContainer {...routeProps} appState={this.state} />
                         )}
                     />
                     }
@@ -106,6 +106,7 @@ class TokenAuth extends Component {
                 this.setState({
                     email: response.email,
                     user_id: response.id,
+                    is_admin: response.admin,
                     jwt: jwt
                 })
                 if (history) history.push('/')
@@ -117,6 +118,7 @@ class TokenAuth extends Component {
                 this.setState({
                     email: undefined,
                     user_id: undefined,
+                    is_admin: undefined,
                     jwt: undefined
                 })
             }

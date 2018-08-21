@@ -11,7 +11,11 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: current_user.as_json(only: %i(id email))
+    render json: @user
+  end
+
+  def current
+    render json: current_user.as_json(only: %i(id email admin))
   end
 
   # POST /users

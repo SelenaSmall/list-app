@@ -25,7 +25,7 @@ module.exports = {
         if (jwt) {
             config['headers']['Authorization'] = 'Bearer ' + jwt
         }
-        return axios.get(apiHost + '/api/v1/users', config)
+        return axios.get(apiHost + '/api/v1/users/current', config)
             .then(function(response){
                 return response.data
             })

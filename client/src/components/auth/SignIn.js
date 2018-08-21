@@ -32,13 +32,19 @@ class SignIn extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <FormGroup>
                             <Label>Email</Label>
-                            <Input id="authEmail" type="email" label="email" placeholder="Enter email"
+                            <Input id="authEmail"
+                                   type="email"
+                                   label="email"
+                                   placeholder="Enter email"
                                    onChange={this.setEmail} />
                         </FormGroup>
 
                         <FormGroup>
                             <Label>Password</Label>
-                            <Input id="authPassword" type="password" label="password" placeholder="Enter password"
+                            <Input id="authPassword"
+                                   type="password"
+                                   label="password"
+                                   placeholder="Enter password"
                                    onChange={this.setPassword} />
                         </FormGroup>
 
@@ -133,7 +139,6 @@ class SignIn extends Component {
 
         Api.authenticateUser(this.state.email.value, this.state.password.value).then(jwt => {
             if (jwt) {
-                console.log(jwt)
                 this.props.propagateSignIn(jwt, this.props.history)
             }
             else {

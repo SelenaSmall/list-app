@@ -10,7 +10,7 @@ class ListsContainer extends Component {
         this.state = {
             lists: [],
             editingListId: null,
-            jwt: props.jwt,
+            jwt: props.appState.jwt,
         }
         this.addNewList = this.addNewList.bind(this)
         this.removeList = this.removeList.bind(this)

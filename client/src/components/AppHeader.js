@@ -8,10 +8,18 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 
 class AppHeader extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isAdmin: this.props.appState.is_admin
+        }
+    }
+
     render() {
         return (
+
             <Navbar expand="md">
-                <NavbarBrand href="/">React List</NavbarBrand>
+                <NavbarBrand>{!!this.state.isAdmin ? 'ADMIN:' : 'USER:' }  {this.props.appState.email}</NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Nav>
                     <LinkContainer exact to="/">
