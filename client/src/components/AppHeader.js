@@ -19,7 +19,7 @@ class AppHeader extends Component {
         return (
 
             <Navbar expand="md">
-                <NavbarBrand>{!!this.state.isAdmin ? 'ADMIN:' : 'USER:' }  {this.props.appState.email}</NavbarBrand>
+                <NavbarBrand>{this.props.appState.email}</NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Nav>
                     <LinkContainer exact to="/">
