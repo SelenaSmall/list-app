@@ -9,13 +9,9 @@ class UsersController < ApplicationController
     render json: @users
   end
 
-  def current
-    render json: current_user.as_json(only: %i(id email))
-  end
-
   # GET /users/1
   def show
-    render json: @user
+    render json: current_user.as_json(only: %i(id email))
   end
 
   # POST /users

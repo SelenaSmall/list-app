@@ -33,4 +33,21 @@ module.exports = {
                 return undefined
             })
     },
+    // getLists: function(jwt) {
+    //     console.log(jwt)
+    //     var config = {
+    //         headers: {}
+    //     }
+    //     if (jwt) {
+    //         config['headers']['Authorization'] = 'Bearer ' + jwt
+    //     }
+    //     return axios.get(apiHost + '/api/v1/lists', config)
+    //         .then(function(response){
+    //             console.log(response)
+    //             return response.data
+    //         })
+    //         .catch(function (error) {
+    //             return undefined
+    //         })
+    // },
 }

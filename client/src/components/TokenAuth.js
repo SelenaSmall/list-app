@@ -7,6 +7,7 @@ import AppHeader from './AppHeader.js'
 import AuthSignIn from './AuthSignIn.js'
 import AuthSignOut from './AuthSignOut.js'
 import PageHome from './PageHome.js'
+import ListsContainer from './ListsContainer.js'
 
 const Api = require('../Api.js')
 
@@ -23,6 +24,15 @@ class TokenAuth extends Component {
                     <AppHeader appState={this.state} />
 
                     <Route exact path="/" component={PageHome} />
+
+                    {this.state.jwt &&
+                    <Route
+                        exact path="/lists"
+                        render={(routeProps) => (
+                            <ListsContainer {...routeProps} jwt={this.state.jwt} />
+                        )}
+                    />
+                    }
 
                     {!this.state.jwt &&
                     <Route

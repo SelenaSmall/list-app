@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     scope '/v1' do
       post 'user_token' => 'user_token#create'
       resources :users
-      get  '/users/current'  => 'users#current'
     end
   end
 
