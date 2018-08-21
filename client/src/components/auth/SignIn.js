@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
     Row,
     Col,
@@ -8,9 +8,9 @@ import {
     Button,
     Alert } from 'reactstrap'
 
-const Api = require('../Api.js')
+const Api = require('../../Api.js')
 
-class AuthSignInComponent extends React.Component {
+class SignIn extends Component {
     render() {
         return (
             <Row>
@@ -147,4 +147,4 @@ class AuthSignInComponent extends React.Component {
     }
 }
 
-export default AuthSignInComponent
+export default SignIn

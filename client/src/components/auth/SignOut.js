@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class AuthSignOutComponent extends React.Component {
+class SignOut extends Component {
     render() {
         return null
     }
@@ -11,4 +11,4 @@ class AuthSignOutComponent extends React.Component {
     }
 }
 
-export default AuthSignOutComponent
+export default SignOut

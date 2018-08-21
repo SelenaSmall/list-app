@@ -3,13 +3,13 @@ import { instanceOf } from 'prop-types'
 import { withCookies, Cookies } from 'react-cookie'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import AppHeader from './AppHeader.js'
-import AuthSignIn from './AuthSignIn.js'
-import AuthSignOut from './AuthSignOut.js'
-import PageHome from './PageHome.js'
-import ListsContainer from './ListsContainer.js'
+import AppHeader from '../AppHeader.js'
+import SignIn from './SignIn.js'
+import SignOut from './SignOut.js'
+import PageHome from '../PageHome.js'
+import ListsContainer from '../lists/ListsContainer.js'
 
-const Api = require('../Api.js')
+const Api = require('../../Api.js')
 
 class TokenAuth extends Component {
 
@@ -38,7 +38,7 @@ class TokenAuth extends Component {
                     <Route
                         exact path="/sign-in"
                         render={(routeProps) => (
-                            <AuthSignIn {...routeProps} propagateSignIn={this.propagateSignIn} />
+                            <SignIn {...routeProps} propagateSignIn={this.propagateSignIn} />
                         )}
                     />
                     }
@@ -47,7 +47,7 @@ class TokenAuth extends Component {
                     <Route
                         exact path="/sign-out"
                         render={(routeProps) => (
-                            <AuthSignOut {...routeProps} propagateSignOut={this.propagateSignOut} />
+                            <SignOut {...routeProps} propagateSignOut={this.propagateSignOut} />
                         )}
                     />
                     }

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Row, Col } from 'reactstrap'
 
-class PageHomeComponent extends React.Component {
+class PageHome extends Component {
     render() {
         return (
             <div>
@@ -15,4 +15,4 @@ class PageHomeComponent extends React.Component {
     }
 }
 
-export default PageHomeComponent
+export default PageHome
